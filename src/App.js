@@ -1,13 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import InventoryTable from './components/InventoryTable';
 import MonthSelector from './components/MonthSelector';
 import SummaryCards from './components/SummaryCards';
 import ProductManagement from './components/ProductManagement';
 import AddProductModal from './components/AddProductModal';
+import Auth from './components/Auth.tsx';
 import { useInventoryData } from './hooks/useInventoryData';
+import { getCurrentUser } from 'aws-amplify/auth';
+import './amplifyconfiguration.ts';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    checkAuthState();
+  }, []);
+
+  const checkAuthState = async () => {
+    try {
+      await getCurrentUser();
+      setIsAuthenticated(true);
+    } catch (error) {
+      setIsAuthenticated(false);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const {
     inventoryData,
@@ -34,7 +54,17 @@ function App() {
     'Accessories': '🎒'
   };
 
+  if (isLoading) {
+    return (
+      <div className="App">
+        <div className="loading">Loading...</div>
+      </div>
+    );
+  }
 
+  if (!isAuthenticated) {
+    return <Auth onAuthStateChange={setIsAuthenticated} />;
+  }
 
   return (
     <div className="App">
