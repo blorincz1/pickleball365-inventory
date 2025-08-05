@@ -1,5 +1,7 @@
 import { Amplify } from 'aws-amplify';
 
+// This will be automatically configured by the sandbox
+// The sandbox will generate the correct configuration
 Amplify.configure({
   Auth: {
     Cognito: {
