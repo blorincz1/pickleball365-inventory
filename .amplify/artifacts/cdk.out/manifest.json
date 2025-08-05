@@ -1,0 +1,295 @@
+{
+  "version": "45.0.0",
+  "artifacts": {
+    "amplify-inventoryapp-boblorincz-sandbox-2247e02b9d.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "amplify-inventoryapp-boblorincz-sandbox-2247e02b9d.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "amplify-inventoryapp-boblorincz-sandbox-2247e02b9d": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "amplify-inventoryapp-boblorincz-sandbox-2247e02b9d.template.json",
+        "terminationProtection": false,
+        "tags": {
+          "amplify:deployment-type": "sandbox",
+          "created-by": "amplify"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/81a34c4d57ea1fc77bb4355e330cb0b1453e78bfc72aa6853aae93b6586c9dce.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "amplify-inventoryapp-boblorincz-sandbox-2247e02b9d.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "amplify-inventoryapp-boblorincz-sandbox-2247e02b9d.assets"
+      ],
+      "metadata": {
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "amplify:deployment-type",
+                "Value": "sandbox"
+              },
+              {
+                "Key": "created-by",
+                "Value": "amplify"
+              }
+            ]
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/deploymentType": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "deploymentType"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/region": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "region"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/auth/amplifyAuth/UserPool/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyAuthUserPool4BA7F805"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/auth/amplifyAuth/UserPoolAppClient/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyAuthUserPoolAppClient2626C6F8"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/auth/amplifyAuth/IdentityPool": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyAuthIdentityPool3FDE84CC"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/auth/amplifyAuth/authenticatedUserRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyAuthauthenticatedUserRoleD8DA3689"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/auth/amplifyAuth/unauthenticatedUserRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyAuthunauthenticatedUserRole2B524D9E"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/auth/amplifyAuth/IdentityPoolRoleAttachment": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyAuthIdentityPoolRoleAttachment045F17C8"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/auth/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/auth/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/auth/amplifyinventoryappboblorinczsandbox2247e02b9dauthamplifyAuthUserPool05752A96Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyinventoryappboblorinczsandbox2247e02b9dauthamplifyAuthUserPool05752A96Ref"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/auth/amplifyinventoryappboblorinczsandbox2247e02b9dauthamplifyAuthUserPoolAppClient88E09610Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyinventoryappboblorinczsandbox2247e02b9dauthamplifyAuthUserPoolAppClient88E09610Ref"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/auth/amplifyinventoryappboblorinczsandbox2247e02b9dauthamplifyAuthIdentityPoolED57F6C1Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyinventoryappboblorinczsandbox2247e02b9dauthamplifyAuthIdentityPoolED57F6C1Ref"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/auth.NestedStack/auth.NestedStackResource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "auth179371D7"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/userPoolId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "userPoolId"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/webClientId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "webClientId"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/identityPoolId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "identityPoolId"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/authRegion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "authRegion"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/allowUnauthenticatedIdentities": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "allowUnauthenticatedIdentities"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/signupAttributes": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "signupAttributes"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/usernameAttributes": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "usernameAttributes"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/verificationMechanisms": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "verificationMechanisms"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/passwordPolicyMinLength": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "passwordPolicyMinLength"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/passwordPolicyRequirements": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "passwordPolicyRequirements"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/mfaConfiguration": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "mfaConfiguration"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/mfaTypes": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "mfaTypes"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/socialProviders": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "socialProviders"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/oauthCognitoDomain": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oauthCognitoDomain"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/oauthScope": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oauthScope"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/oauthRedirectSignIn": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oauthRedirectSignIn"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/oauthRedirectSignOut": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oauthRedirectSignOut"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/oauthResponseType": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oauthResponseType"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/oauthClientId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "oauthClientId"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/groups": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "groups"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/amplify-inventoryapp-boblorincz-sandbox-2247e02b9d/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "amplify-inventoryapp-boblorincz-sandbox-2247e02b9d"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  },
+  "minimumCliVersion": "2.1020.2"
+}

@@ -1,0 +1,34 @@
+{
+  "version": "45.0.0",
+  "files": {
+    "08ebc53b27d30950aed2ae6b785e124b5d1b60e2d021eb083100b602a4a5b4fe": {
+      "displayName": "auth Nested Stack Template",
+      "source": {
+        "path": "amplifyinventoryappboblorinczsandbox2247e02b9dauth1A781B8D.nested.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "08ebc53b27d30950aed2ae6b785e124b5d1b60e2d021eb083100b602a4a5b4fe.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    },
+    "81a34c4d57ea1fc77bb4355e330cb0b1453e78bfc72aa6853aae93b6586c9dce": {
+      "displayName": "amplify-inventoryapp-boblorincz-sandbox-2247e02b9d Template",
+      "source": {
+        "path": "amplify-inventoryapp-boblorincz-sandbox-2247e02b9d.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "81a34c4d57ea1fc77bb4355e330cb0b1453e78bfc72aa6853aae93b6586c9dce.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
