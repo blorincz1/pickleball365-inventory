@@ -1,70 +1,133 @@
-# Getting Started with Create React App
+# Pickleball 365 Inventory Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React-based inventory management application for Pickleball 365 business, featuring beautiful UI design and persistent data storage.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Monthly Inventory Tracking**: Switch between 12 months to view and manage inventory
+- **Product Categories**: Organized by Paddles, Apparel, and Accessories
+- **Real-time Calculations**: Automatic cost and retail value calculations
+- **Stock Level Indicators**: Visual indicators for low stock and out-of-stock items
+- **Add/Delete Products**: Dynamic product management with form validation
+- **Data Persistence**: All data is saved to localStorage automatically
+- **Export Functionality**: Export inventory data to CSV format
+- **Responsive Design**: Works beautifully on desktop, tablet, and mobile devices
 
-### `npm start`
+## Technology Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React 18**: Modern React with hooks and functional components
+- **CSS3**: Beautiful gradient designs and smooth animations
+- **localStorage**: Client-side data persistence
+- **Create React App**: Development and build tooling
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v16 or higher)
+- npm or yarn
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd inventory-app
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install dependencies:
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Start the development server:
+```bash
+npm start
+```
 
-### `npm run eject`
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Viewing Inventory
+- Use the month buttons to switch between different months
+- View summary statistics at the top of the page
+- See product categories with emoji indicators
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Managing Products
+- Click "➕ Add Product" to add new products
+- Click "🗑️ Delete Mode" to enable product deletion
+- Edit quantities directly in the table cells
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Exporting Data
+- Click "📥 Export CSV" to download the current month's inventory as a CSV file
 
-## Learn More
+## Data Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The application maintains inventory data with the following structure:
+- **Product Name**: Full product description
+- **Retail Price**: Selling price to customers
+- **Cost Price**: Purchase cost
+- **Quantity**: Current stock level
+- **Cost Value**: Total cost value (cost × quantity)
+- **Retail Value**: Total retail value (retail × quantity)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Deployment
 
-### Code Splitting
+### For AWS S3 + CloudFront
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Build the production version:
+```bash
+npm run build
+```
 
-### Analyzing the Bundle Size
+2. Upload the `build` folder contents to your S3 bucket
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3. Configure CloudFront for CDN distribution
 
-### Making a Progressive Web App
+### For AWS Amplify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Connect your repository to AWS Amplify
+2. Configure build settings to use `npm run build`
+3. Deploy automatically on git push
 
-### Advanced Configuration
+## Development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Project Structure
 
-### Deployment
+```
+src/
+├── components/          # React components
+│   ├── InventoryTable.js
+│   ├── MonthSelector.js
+│   ├── SummaryCards.js
+│   ├── ProductManagement.js
+│   └── AddProductModal.js
+├── hooks/              # Custom React hooks
+│   └── useInventoryData.js
+├── utils/              # Utility functions
+│   └── formatters.js
+├── App.js              # Main application component
+└── App.css             # Styling
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Key Components
 
-### `npm run build` fails to minify
+- **useInventoryData**: Custom hook managing all inventory state and localStorage persistence
+- **InventoryTable**: Main table component with category grouping and editing
+- **MonthSelector**: Month navigation and export functionality
+- **SummaryCards**: Real-time summary statistics display
+- **AddProductModal**: Form for adding new products
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Future Enhancements
+
+- [ ] AWS DynamoDB integration for cloud data storage
+- [ ] User authentication with AWS Cognito
+- [ ] Real-time collaboration features
+- [ ] Advanced reporting and analytics
+- [ ] Barcode scanning integration
+- [ ] Email notifications for low stock
+
+## License
+
+This project is proprietary software for Pickleball 365 business use.
