@@ -13,4 +13,11 @@ Amplify.configure({
     },
     region: 'us-east-1',
   },
+  API: {
+    GraphQL: {
+      endpoint: process.env.REACT_APP_GRAPHQL_ENDPOINT || '',
+      region: 'us-east-1',
+      defaultAuthMode: 'userPool',
+    },
+  },
 }); 

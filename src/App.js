@@ -6,7 +6,7 @@ import SummaryCards from './components/SummaryCards';
 import ProductManagement from './components/ProductManagement';
 import AddProductModal from './components/AddProductModal';
 import Auth from './components/Auth.tsx';
-import { useInventoryData } from './hooks/useInventoryData';
+import { useInventoryDataDB } from './hooks/useInventoryDataDB';
 import { getCurrentUser } from 'aws-amplify/auth';
 import './amplifyconfiguration.ts';
 
@@ -34,12 +34,13 @@ function App() {
     currentMonth,
     deleteMode,
     inventoryByCategory,
+    isLoading: dataLoading,
     updateQuantity,
     switchMonth,
     toggleDeleteMode,
     addProduct,
     deleteProduct
-  } = useInventoryData();
+  } = useInventoryDataDB();
 
   const [showAddModal, setShowAddModal] = useState(false);
 
@@ -64,6 +65,14 @@ function App() {
 
   if (!isAuthenticated) {
     return <Auth onAuthStateChange={setIsAuthenticated} />;
+  }
+
+  if (dataLoading) {
+    return (
+      <div className="App">
+        <div className="loading">Loading inventory data...</div>
+      </div>
+    );
   }
 
   return (

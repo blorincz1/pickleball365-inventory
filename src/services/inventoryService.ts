@@ -1,23 +1,22 @@
 import { generateClient } from 'aws-amplify/api';
-import { Schema } from '../../../amplify/backend/data/resource';
+import { type Schema } from '../../amplify/backend/data/resource';
 
 const client = generateClient<Schema>();
 
 export interface InventoryItem {
-  id?: string;
+  id: string;
   name: string;
   retail: number;
   cost: number;
   quantity: number;
   month: number;
   category: string;
-  createdAt?: string;
-  updatedAt?: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export class InventoryService {
-  // Get all inventory items for a specific month
-  async getInventoryForMonth(month: number): Promise<InventoryItem[]> {
+  static async getInventoryForMonth(month: number): Promise<InventoryItem[]> {
     try {
       const response = await client.models.InventoryItem.list({
         filter: {
@@ -31,8 +30,7 @@ export class InventoryService {
     }
   }
 
-  // Get all inventory items
-  async getAllInventory(): Promise<InventoryItem[]> {
+  static async getAllInventory(): Promise<InventoryItem[]> {
     try {
       const response = await client.models.InventoryItem.list();
       return response.data;
@@ -42,8 +40,7 @@ export class InventoryService {
     }
   }
 
-  // Update quantity for a specific item
-  async updateQuantity(id: string, quantity: number): Promise<InventoryItem | null> {
+  static async updateQuantity(id: string, quantity: number): Promise<InventoryItem | null> {
     try {
       const response = await client.models.InventoryItem.update({
         id,
@@ -56,10 +53,13 @@ export class InventoryService {
     }
   }
 
-  // Add new inventory item
-  async addInventoryItem(item: Omit<InventoryItem, 'id' | 'createdAt' | 'updatedAt'>): Promise<InventoryItem | null> {
+  static async addInventoryItem(item: Omit<InventoryItem, 'id' | 'createdAt' | 'updatedAt'>): Promise<InventoryItem | null> {
     try {
-      const response = await client.models.InventoryItem.create(item);
+      const response = await client.models.InventoryItem.create({
+        ...item,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      });
       return response.data;
     } catch (error) {
       console.error('Error adding inventory item:', error);
@@ -67,8 +67,7 @@ export class InventoryService {
     }
   }
 
-  // Delete inventory item
-  async deleteInventoryItem(id: string): Promise<boolean> {
+  static async deleteInventoryItem(id: string): Promise<boolean> {
     try {
       await client.models.InventoryItem.delete({ id });
       return true;
@@ -78,49 +77,56 @@ export class InventoryService {
     }
   }
 
-  // Migrate data from localStorage to DynamoDB
-  async migrateFromLocalStorage(localStorageData: any): Promise<boolean> {
+  static async migrateFromLocalStorage(localStorageData: any): Promise<boolean> {
     try {
       const items: Omit<InventoryItem, 'id' | 'createdAt' | 'updatedAt'>[] = [];
       
-      // Process each month
-      for (let month = 0; month < 12; month++) {
-        if (localStorageData[month]) {
-          localStorageData[month].forEach((item: any) => {
+      // Convert localStorage data to database format
+      Object.keys(localStorageData).forEach(monthName => {
+        const monthIndex = this.getMonthIndex(monthName);
+        if (monthIndex !== -1) {
+          localStorageData[monthName].forEach((item: any) => {
             items.push({
               name: item[0],
-              retail: item[1],
-              cost: item[2],
-              quantity: item[3],
-              month,
+              retail: parseFloat(item[1]),
+              cost: parseFloat(item[2]),
+              quantity: parseInt(item[3]),
+              month: monthIndex,
               category: this.getCategoryForProduct(item[0])
             });
           });
         }
-      }
+      });
 
-      // Create all items in DynamoDB
+      // Add all items to database
       for (const item of items) {
         await this.addInventoryItem(item);
       }
 
       return true;
     } catch (error) {
-      console.error('Error migrating data:', error);
+      console.error('Error migrating from localStorage:', error);
       return false;
     }
   }
 
-  // Helper method to determine category based on product name
-  private getCategoryForProduct(productName: string): string {
-    if (productName.includes('Paddle') || productName.includes('FRANKLIN') || productName.includes('P365 Pickleball Paddle')) {
-      return 'Paddles';
-    } else if (productName.includes('Shirt') || productName.includes('Skort') || productName.includes('Visor') || productName.includes('Headband')) {
-      return 'Apparel';
-    } else {
-      return 'Accessories';
-    }
+  private static getMonthIndex(monthName: string): number {
+    const months = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    return months.indexOf(monthName);
   }
-}
 
-export const inventoryService = new InventoryService(); 
+  private static getCategoryForProduct(productName: string): string {
+    const paddleProducts = ['Paddle A', 'Paddle B', 'Paddle C'];
+    const apparelProducts = ['Shirt A', 'Shirt B', 'Shirt C'];
+    const accessoryProducts = ['Bag A', 'Bag B', 'Bag C'];
+
+    if (paddleProducts.includes(productName)) return 'Paddles';
+    if (apparelProducts.includes(productName)) return 'Apparel';
+    if (accessoryProducts.includes(productName)) return 'Accessories';
+    
+    return 'Other';
+  }
+} 
