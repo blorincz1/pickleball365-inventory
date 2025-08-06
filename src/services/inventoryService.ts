@@ -32,7 +32,9 @@ export class InventoryService {
 
   static async getAllInventory(): Promise<InventoryItem[]> {
     try {
+      console.log('Fetching all inventory from database...');
       const response = await client.models.InventoryItem.list();
+      console.log('Database response:', response);
       return response.data;
     } catch (error) {
       console.error('Error fetching all inventory:', error);
