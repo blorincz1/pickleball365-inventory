@@ -7,7 +7,7 @@ import ProductManagement from './components/ProductManagement';
 import AddProductModal from './components/AddProductModal';
 import Auth from './components/Auth.tsx';
 import { useInventoryData } from './hooks/useInventoryData';
-import { useInventoryDataSimpleDB } from './hooks/useInventoryDataSimpleDB';
+import { useInventoryDataAppSync } from './hooks/useInventoryDataAppSync';
 import { getCurrentUser } from 'aws-amplify/auth';
 import './amplifyconfiguration.ts';
 
@@ -44,7 +44,7 @@ function App() {
     deleteProduct,
     migrateToDatabase,
     toggleDatabase
-  } = useInventoryDataSimpleDB();
+  } = useInventoryDataAppSync();
 
   const [showAddModal, setShowAddModal] = useState(false);
 

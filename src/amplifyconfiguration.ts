@@ -15,7 +15,7 @@ Amplify.configure({
   },
   API: {
     GraphQL: {
-      endpoint: process.env.REACT_APP_GRAPHQL_ENDPOINT || '',
+      endpoint: "https://3ly6wdb4ujehteovefrkakvuhi.appsync-api.us-east-1.amazonaws.com/graphql",
       region: 'us-east-1',
       defaultAuthMode: 'userPool',
     },
