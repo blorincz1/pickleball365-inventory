@@ -11,51 +11,52 @@ export const useInventoryDataSimpleDB = () => {
 
   const dbService = new SimpleDatabaseService();
 
-  // Load data from database or localStorage
-  const loadInventoryData = async () => {
-    try {
-      setIsLoading(true);
-      console.log('Loading inventory data...');
-      
-      if (useDatabase) {
-        console.log('Loading from database...');
-        // Load from database
-        const allItems = await dbService.getItemsByMonth(currentMonth);
-        console.log('Database items:', allItems);
-        
-        // Group by month
-        const groupedData = {};
-        allItems.forEach(item => {
-          if (!groupedData[item.month]) {
-            groupedData[item.month] = [];
-          }
-          groupedData[item.month].push([item.name, item.retail, item.cost, item.quantity]);
-        });
+           // Load data from database or localStorage
+         const loadInventoryData = async () => {
+           try {
+             setIsLoading(true);
+             console.log('🔄 Loading inventory data...');
+             
+             if (useDatabase) {
+               console.log('🗄️ Loading from database...');
+               // Load from database
+               const allItems = await dbService.getItemsByMonth(currentMonth);
+               console.log('📦 Database items:', allItems);
+               
+               // Group by month
+               const groupedData = {};
+               allItems.forEach(item => {
+                 if (!groupedData[item.month]) {
+                   groupedData[item.month] = [];
+                 }
+                 groupedData[item.month].push([item.name, item.retail, item.cost, item.quantity]);
+               });
 
-        console.log('Grouped data:', groupedData);
-        setInventoryData(groupedData);
-      } else {
-        // Load from localStorage
-        const localStorageData = localStorage.getItem('inventoryData');
-        console.log('localStorage data:', localStorageData);
-        
-        if (localStorageData) {
-          setInventoryData(JSON.parse(localStorageData));
-        }
-      }
-    } catch (error) {
-      console.error('Error loading inventory data:', error);
-      // Fallback to localStorage if database fails
-      const localStorageData = localStorage.getItem('inventoryData');
-      if (localStorageData) {
-        console.log('Falling back to localStorage data');
-        setInventoryData(JSON.parse(localStorageData));
-        setUseDatabase(false);
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
+               console.log('📊 Grouped data:', groupedData);
+               setInventoryData(groupedData);
+             } else {
+               console.log('💾 Loading from localStorage...');
+               // Load from localStorage
+               const localStorageData = localStorage.getItem('inventoryData');
+               console.log('📦 localStorage data:', localStorageData);
+               
+               if (localStorageData) {
+                 setInventoryData(JSON.parse(localStorageData));
+               }
+             }
+           } catch (error) {
+             console.error('❌ Error loading inventory data:', error);
+             // Fallback to localStorage if database fails
+             const localStorageData = localStorage.getItem('inventoryData');
+             if (localStorageData) {
+               console.log('🔄 Falling back to localStorage data');
+               setInventoryData(JSON.parse(localStorageData));
+               setUseDatabase(false);
+             }
+           } finally {
+             setIsLoading(false);
+           }
+         };
 
   // Load data on mount
   useEffect(() => {
@@ -161,24 +162,32 @@ export const useInventoryDataSimpleDB = () => {
     }
   };
 
-  // Migrate from localStorage to database
-  const migrateToDatabase = async () => {
-    try {
-      const localStorageData = localStorage.getItem('inventoryData');
-      if (localStorageData && !hasMigrated) {
-        console.log('Migrating to database...');
-        const parsedData = JSON.parse(localStorageData);
-        const success = await dbService.migrateFromLocalStorage(parsedData);
-        if (success) {
-          setHasMigrated(true);
-          setUseDatabase(true);
-          console.log('Migration successful!');
-        }
-      }
-    } catch (error) {
-      console.error('Error migrating to database:', error);
-    }
-  };
+           // Migrate from localStorage to database
+         const migrateToDatabase = async () => {
+           try {
+             console.log('🚀 Starting migration to database...');
+             const localStorageData = localStorage.getItem('inventoryData');
+             console.log('📦 localStorage data for migration:', localStorageData);
+             
+             if (localStorageData && !hasMigrated) {
+               console.log('🔄 Migrating to database...');
+               const parsedData = JSON.parse(localStorageData);
+               console.log('📊 Parsed data:', parsedData);
+               const success = await dbService.migrateFromLocalStorage(parsedData);
+               console.log('✅ Migration result:', success);
+               
+               if (success) {
+                 setHasMigrated(true);
+                 setUseDatabase(true);
+                 console.log('🎉 Migration successful!');
+               }
+             } else {
+               console.log('⚠️ No localStorage data or already migrated');
+             }
+           } catch (error) {
+             console.error('❌ Error migrating to database:', error);
+           }
+         };
 
   // Toggle between localStorage and database
   const toggleDatabase = () => {

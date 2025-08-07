@@ -26,6 +26,8 @@ export class SimpleDatabaseService {
 
   async addItem(item: Omit<InventoryItem, 'id'>): Promise<InventoryItem | null> {
     try {
+      console.log('➕ Adding item to database:', item);
+      
       const id = `item_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
       
       const newItem: InventoryItem = {
@@ -33,21 +35,27 @@ export class SimpleDatabaseService {
         id,
       };
 
+      console.log('📝 New item with ID:', newItem);
+
       const command = new PutCommand({
         TableName: this.tableName,
         Item: newItem,
       });
 
+      console.log('📡 Sending DynamoDB put command...');
       await docClient.send(command);
+      console.log('✅ Item added successfully!');
       return newItem;
     } catch (error) {
-      console.error('Error adding item:', error);
+      console.error('❌ Error adding item:', error);
       return null;
     }
   }
 
   async getItemsByMonth(month: number): Promise<InventoryItem[]> {
     try {
+      console.log(`🔍 Fetching items for month ${month} from table ${this.tableName}`);
+      
       const command = new ScanCommand({
         TableName: this.tableName,
         FilterExpression: '#month = :month',
@@ -59,10 +67,14 @@ export class SimpleDatabaseService {
         },
       });
 
+      console.log('📡 Sending DynamoDB scan command...');
       const response = await docClient.send(command);
+      console.log('✅ DynamoDB response:', response);
+      console.log('📦 Items found:', response.Items);
+      
       return response.Items as InventoryItem[] || [];
     } catch (error) {
-      console.error('Error getting items by month:', error);
+      console.error('❌ Error getting items by month:', error);
       return [];
     }
   }
