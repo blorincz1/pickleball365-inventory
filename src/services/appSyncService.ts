@@ -298,4 +298,91 @@ export class AppSyncService {
     console.log('✅ Console database population completed successfully!');
     return true;
   }
+
+  // Console script for populating specific months
+  static async populateSpecificMonths(months: number[]) {
+    const service = new AppSyncService();
+    console.log(`🚀 Starting population for months: ${months.join(', ')}`);
+    
+    // Get localStorage data
+    const localStorageData = localStorage.getItem('inventoryData');
+    if (!localStorageData) {
+      console.log('⚠️ No localStorage data found');
+      return false;
+    }
+    
+    const parsedData = JSON.parse(localStorageData);
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
+    const items: Omit<InventoryItem, 'id'>[] = [];
+    
+    // Convert localStorage data to AppSync format for specific months
+    months.forEach(monthIndex => {
+      const monthName = monthNames[monthIndex];
+      console.log(`📅 Processing month: ${monthName} (index ${monthIndex})`);
+      
+      if (parsedData[monthName]) {
+        console.log(`📦 Items in ${monthName}:`, parsedData[monthName]);
+        parsedData[monthName].forEach((item: any) => {
+          const newItem = {
+            name: item[0],
+            retail: parseFloat(item[1]),
+            cost: parseFloat(item[2]),
+            quantity: parseInt(item[3]),
+            month: monthIndex,
+            category: service.getCategoryForProduct(item[0])
+          };
+          console.log(`➕ Converting item:`, item, `to:`, newItem);
+          items.push(newItem);
+        });
+      } else {
+        console.log(`⚠️ No data found for ${monthName}`);
+      }
+    });
+
+    console.log(`📦 Total items to add: ${items.length}`);
+    console.log(`📦 All items:`, items);
+    
+    // Add all items to AppSync
+    console.log(`📝 Adding ${items.length} items to AppSync...`);
+    for (const item of items) {
+      console.log('➕ Adding item:', item);
+      const result = await service.addItem(item);
+      console.log('✅ Add result:', result);
+    }
+
+    console.log('✅ Specific months population completed successfully!');
+    return true;
+  }
+
+  // Console script for clearing database
+  static async clearDatabase() {
+    console.log('🗑️ Starting database clear...');
+    console.log('⚠️ This will delete all items from the database');
+    console.log('⚠️ This action cannot be undone');
+    
+    const confirm = window.confirm('Are you sure you want to clear the database? This action cannot be undone.');
+    if (!confirm) {
+      console.log('❌ Database clear cancelled');
+      return false;
+    }
+    
+    const service = new AppSyncService();
+    
+    // Get all items first
+    console.log('📦 Getting all items from database...');
+    const allItems = await service.getAllItems();
+    console.log(`📦 Found ${allItems.length} items to delete`);
+    
+    // Delete all items
+    console.log('🗑️ Deleting all items...');
+    for (const item of allItems) {
+      console.log(`🗑️ Deleting item: ${item.name} (ID: ${item.id})`);
+      const result = await service.deleteItem(item.id);
+      console.log('✅ Delete result:', result);
+    }
+    
+    console.log('✅ Database clear completed successfully!');
+    return true;
+  }
 } 
