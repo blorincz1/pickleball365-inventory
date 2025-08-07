@@ -1,9 +1,8 @@
 import { generateClient } from 'aws-amplify/api';
-import { getCurrentUser } from 'aws-amplify/auth';
 
 // Initialize the AppSync client
 const client = generateClient({
-  authMode: 'userPool'
+  authMode: 'apiKey'
 });
 
 export interface InventoryItem {
@@ -80,26 +79,9 @@ const DELETE_INVENTORY_ITEM = `
 `;
 
 export class AppSyncService {
-  private async checkAuth() {
-    try {
-      await getCurrentUser();
-      return true;
-    } catch (error) {
-      console.error('❌ User not authenticated:', error);
-      return false;
-    }
-  }
-
   async getItemsByMonth(month: number): Promise<InventoryItem[]> {
     try {
       console.log(`🔍 Fetching items for month ${month} from AppSync`);
-      
-      // Check authentication first
-      const isAuthenticated = await this.checkAuth();
-      if (!isAuthenticated) {
-        console.log('⚠️ User not authenticated, skipping database call');
-        return [];
-      }
       
       const response = await client.graphql({
         query: GET_INVENTORY_ITEMS,
@@ -134,13 +116,6 @@ export class AppSyncService {
     try {
       console.log('➕ Adding item to AppSync:', item);
       
-      // Check authentication first
-      const isAuthenticated = await this.checkAuth();
-      if (!isAuthenticated) {
-        console.log('⚠️ User not authenticated, skipping database call');
-        return null;
-      }
-      
       const response = await client.graphql({
         query: CREATE_INVENTORY_ITEM,
         variables: item
@@ -158,13 +133,6 @@ export class AppSyncService {
     try {
       console.log(`📝 Updating quantity for item ${id} to ${quantity}`);
       
-      // Check authentication first
-      const isAuthenticated = await this.checkAuth();
-      if (!isAuthenticated) {
-        console.log('⚠️ User not authenticated, skipping database call');
-        return null;
-      }
-      
       const response = await client.graphql({
         query: UPDATE_INVENTORY_ITEM,
         variables: { id, quantity }
@@ -181,13 +149,6 @@ export class AppSyncService {
   async deleteItem(id: string): Promise<boolean> {
     try {
       console.log(`🗑️ Deleting item ${id}`);
-      
-      // Check authentication first
-      const isAuthenticated = await this.checkAuth();
-      if (!isAuthenticated) {
-        console.log('⚠️ User not authenticated, skipping database call');
-        return false;
-      }
       
       const response = await client.graphql({
         query: DELETE_INVENTORY_ITEM,
