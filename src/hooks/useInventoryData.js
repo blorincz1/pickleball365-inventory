@@ -176,6 +176,346 @@ const aprilQuantities = {
   "P365 Slim Tumbler": 35
 };
 
+// May 2025 actual quantities
+const mayQuantities = {
+  "JOOLA Ben Johns Perseus Pro IV 16mm Paddle": 2,
+  "JOOLA Ben Johns Perseus Pro IV 14mm Paddle": 2,
+  "JOOLA Ben Johns Hyperion Pro IV 16mm Paddle": 1,
+  "JOOLA Ben Johns Hyperion Pro IV 14mm Paddle": 2,
+  "JOOLA Simone Jardim Hyperion Pro IV 16mm Paddle": 2,
+  "JOOLA Collin Johns Scorpeus Pro IV 16mm Paddle": 3,
+  "JOOLA Anna Bright Scorpeus Pro IV 14mm Paddle": 3,
+  "JOOLA Tyson McGuffin Magnus Pro IV 16mm Paddle": 2,
+  "JOOLA Tyson McGuffin Magnus Pro IV 14mm Paddle": 5,
+  "JOOLA Agassi Pro 16mm Pickleball Paddle": 2,
+  "JOOLA Graf Pro 16mm Pickleball Paddle": 2,
+  "JOOLA Agassi Pro 14mm Pickleball Paddle": 2,
+  "JOOLA Agassi Edge 16mm Pickleball Paddle": 3,
+  "JOOLA Graf Edge 16mm Pickleball Paddle": 2,
+  "JOOLA Agassi Champion 12mm Pickleball Paddle": 0,
+  "JOOLA Graf Champion 12mm Pickleball Paddle": 0,
+  "JOOLA Agassi/Graf Champion Pickleball Paddle Set": 1,
+  "FRANKLIN Tour Dynasty 12mm FthrWt Paddle": 2,
+  "FRANKLIN Tour Tempo 12mm FthrWt Paddle": 3,
+  "FRANKLIN C45 Dynasty 14mm Red Paddle": 3,
+  "FRANKLIN C45 Dynasty 16mm Red Paddle": 2,
+  "P365 Pickleball Paddle": 23,
+  "AA Sport-Tek Ladies Repeat Skort - True Navy / Medium": 0,
+  "AA Sport-Tek Ladies Repeat Skort - True Navy / Large": 0,
+  "AA Sport-Tek PosiCharge RacerMesh Visor - True Navy": 0,
+  "AA Holloway Ladies Coolcore Skort - Navy / Medium": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / Small": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / Medium": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / X-Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / XX-Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / XXX-Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Neon Green / Small": 0,
+  "AA Performance Short Sleeve Tee Shirt - Neon Green / Medium": 0,
+  "AA Performance Short Sleeve Tee Shirt - Neon Green / Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Neon Green / X-Large": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / Small": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / Medium": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / Large": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / X-Large": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / XX-Large": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / XXX-Large": 0,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / Small": 6,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / Medium": 2,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / Large": 2,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / X-Large": 5,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / XX-Large": 6,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / XXX-Large": 3,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / Small": 0,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / Medium": 0,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / Large": 8,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / X-Large": 24,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / XX-Large": 4,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / XXX-Large": 2,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / Small": 0,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / Medium": 0,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / Large": 0,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / X-Large": 0,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / XX-Large": 11,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / XXX-Large": 5,
+  "JUNK Flex Tie Headband Navy Blue": 10,
+  "JUNK Big Bang Lite Headband Navy Blue": 7,
+  "JOOLA Essentials Pickleball Sling Bag": 30,
+  "JOOLA Universal Neoprene Pickleball Paddle Cover": 21,
+  "JOOLA Trinity Wristband 2-Pack": 20,
+  "JOOLA Pickleball Edge Guard Tape Black 5M": 0,
+  "JOOLA Pickleball Edge Guard Tape White 24M": 0,
+  "JOOLA Replacement White Ridge Grip 2-Pack": 0,
+  "JOOLA Replacement Feel-Tec Pure Grip": 0,
+  "JOOLA Premium Pickleball Paddle Overgrip 4-Count White": 2,
+  "JOOLA PRO IV Keychain - Agassi Pro": 6,
+  "JOOLA PRO IV Keychain - Hyperion Pro IV": 4,
+  "JOOLA PRO IV Keychain - Magnus Pro IV": 6,
+  "JOOLA PRO IV Keychain - Perseus Pro IV": 6,
+  "JOOLA PRO IV Keychain - Scorpeus Pro IV": 6,
+  "QMI P365 16oz Clear Tumbler - Lime Straw": 5,
+  "QMI P365 30oz White Travel Tumbler": 3,
+  "P365 Keychain Yellow": 30,
+  "P365 Keychain Pink": 23,
+  "P365 Keychain Red": 27,
+  "P365 Slim Tumbler": 14
+};
+
+// June 2025 actual quantities
+const juneQuantities = {
+  "JOOLA Ben Johns Perseus Pro IV 16mm Paddle": 0,
+  "JOOLA Ben Johns Perseus Pro IV 14mm Paddle": 1,
+  "JOOLA Ben Johns Hyperion Pro IV 16mm Paddle": 1,
+  "JOOLA Ben Johns Hyperion Pro IV 14mm Paddle": 2,
+  "JOOLA Simone Jardim Hyperion Pro IV 16mm Paddle": 2,
+  "JOOLA Collin Johns Scorpeus Pro IV 16mm Paddle": 1,
+  "JOOLA Anna Bright Scorpeus Pro IV 14mm Paddle": 3,
+  "JOOLA Tyson McGuffin Magnus Pro IV 16mm Paddle": 1,
+  "JOOLA Tyson McGuffin Magnus Pro IV 14mm Paddle": 5,
+  "JOOLA Agassi Pro 16mm Pickleball Paddle": 1,
+  "JOOLA Graf Pro 16mm Pickleball Paddle": 2,
+  "JOOLA Agassi Pro 14mm Pickleball Paddle": 1,
+  "JOOLA Agassi Edge 16mm Pickleball Paddle": 3,
+  "JOOLA Graf Edge 16mm Pickleball Paddle": 3,
+  "JOOLA Agassi Champion 12mm Pickleball Paddle": 0,
+  "JOOLA Graf Champion 12mm Pickleball Paddle": 0,
+  "JOOLA Agassi/Graf Champion Pickleball Paddle Set": 1,
+  "FRANKLIN Tour Dynasty 12mm FthrWt Paddle": 2,
+  "FRANKLIN Tour Tempo 12mm FthrWt Paddle": 3,
+  "FRANKLIN C45 Dynasty 14mm Red Paddle": 3,
+  "FRANKLIN C45 Dynasty 16mm Red Paddle": 2,
+  "P365 Pickleball Paddle": 24,
+  "AA Sport-Tek Ladies Repeat Skort - True Navy / Medium": 0,
+  "AA Sport-Tek Ladies Repeat Skort - True Navy / Large": 0,
+  "AA Sport-Tek PosiCharge RacerMesh Visor - True Navy": 0,
+  "AA Holloway Ladies Coolcore Skort - Navy / Medium": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / Small": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / Medium": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / X-Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / XX-Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / XXX-Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Neon Green / Small": 0,
+  "AA Performance Short Sleeve Tee Shirt - Neon Green / Medium": 0,
+  "AA Performance Short Sleeve Tee Shirt - Neon Green / Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Neon Green / X-Large": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / Small": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / Medium": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / Large": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / X-Large": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / XX-Large": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / XXX-Large": 0,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / Small": 2,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / Medium": 1,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / Large": 1,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / X-Large": 2,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / XX-Large": 4,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / XXX-Large": 3,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / Small": 1,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / Medium": 0,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / Large": 8,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / X-Large": 24,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / XX-Large": 4,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / XXX-Large": 2,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / Small": 0,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / Medium": 0,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / Large": 0,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / X-Large": 0,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / XX-Large": 11,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / XXX-Large": 5,
+  "JUNK Flex Tie Headband Navy Blue": 9,
+  "JUNK Big Bang Lite Headband Navy Blue": 5,
+  "JOOLA Essentials Pickleball Sling Bag": 30,
+  "JOOLA Universal Neoprene Pickleball Paddle Cover": 21,
+  "JOOLA Trinity Wristband 2-Pack": 20,
+  "JOOLA Pickleball Edge Guard Tape Black 5M": 0,
+  "JOOLA Pickleball Edge Guard Tape White 24M": 0,
+  "JOOLA Replacement White Ridge Grip 2-Pack": 0,
+  "JOOLA Replacement Feel-Tec Pure Grip": 0,
+  "JOOLA Premium Pickleball Paddle Overgrip 4-Count White": 2,
+  "JOOLA PRO IV Keychain - Agassi Pro": 6,
+  "JOOLA PRO IV Keychain - Hyperion Pro IV": 4,
+  "JOOLA PRO IV Keychain - Magnus Pro IV": 6,
+  "JOOLA PRO IV Keychain - Perseus Pro IV": 6,
+  "JOOLA PRO IV Keychain - Scorpeus Pro IV": 6,
+  "QMI P365 16oz Clear Tumbler - Lime Straw": 5,
+  "QMI P365 30oz White Travel Tumbler": 3,
+  "P365 Keychain Yellow": 30,
+  "P365 Keychain Pink": 23,
+  "P365 Keychain Red": 27,
+  "P365 Slim Tumbler": 14
+};
+
+// July 2025 actual quantities
+const julyQuantities = {
+  "JOOLA Ben Johns Perseus Pro IV 16mm Paddle": 6,
+  "JOOLA Ben Johns Perseus Pro IV 14mm Paddle": 2,
+  "JOOLA Ben Johns Hyperion Pro IV 16mm Paddle": 4,
+  "JOOLA Ben Johns Hyperion Pro IV 14mm Paddle": 2,
+  "JOOLA Simone Jardim Hyperion Pro IV 16mm Paddle": 2,
+  "JOOLA Collin Johns Scorpeus Pro IV 16mm Paddle": 3,
+  "JOOLA Anna Bright Scorpeus Pro IV 14mm Paddle": 3,
+  "JOOLA Tyson McGuffin Magnus Pro IV 16mm Paddle": 2,
+  "JOOLA Tyson McGuffin Magnus Pro IV 14mm Paddle": 5,
+  "JOOLA Agassi Pro 16mm Pickleball Paddle": 4,
+  "JOOLA Graf Pro 16mm Pickleball Paddle": 2,
+  "JOOLA Agassi Pro 14mm Pickleball Paddle": 0,
+  "JOOLA Agassi Edge 16mm Pickleball Paddle": 3,
+  "JOOLA Graf Edge 16mm Pickleball Paddle": 3,
+  "JOOLA Agassi Champion 12mm Pickleball Paddle": 0,
+  "JOOLA Graf Champion 12mm Pickleball Paddle": 0,
+  "JOOLA Agassi/Graf Champion Pickleball Paddle Set": 1,
+  "FRANKLIN Tour Dynasty 12mm FthrWt Paddle": 2,
+  "FRANKLIN Tour Tempo 12mm FthrWt Paddle": 3,
+  "FRANKLIN C45 Dynasty 14mm Red Paddle": 3,
+  "FRANKLIN C45 Dynasty 16mm Red Paddle": 2,
+  "P365 Pickleball Paddle": 24,
+  "AA Sport-Tek Ladies Repeat Skort - True Navy / Medium": 1,
+  "AA Sport-Tek Ladies Repeat Skort - True Navy / Large": 1,
+  "AA Sport-Tek PosiCharge RacerMesh Visor - True Navy": 0,
+  "AA Holloway Ladies Coolcore Skort - Navy / Medium": 1,
+  "AA Performance Short Sleeve Tee Shirt - Navy / Small": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / Medium": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / X-Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / XX-Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / XXX-Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Neon Green / Small": 1,
+  "AA Performance Short Sleeve Tee Shirt - Neon Green / Medium": 1,
+  "AA Performance Short Sleeve Tee Shirt - Neon Green / Large": 1,
+  "AA Performance Short Sleeve Tee Shirt - Neon Green / X-Large": 1,
+  "AA Performance Long Sleeve Tee Shirt - Navy / Small": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / Medium": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / Large": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / X-Large": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / XX-Large": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / XXX-Large": 0,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / Small": 6,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / Medium": 2,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / Large": 3,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / X-Large": 6,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / XX-Large": 6,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / XXX-Large": 3,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / Small": 0,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / Medium": 0,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / Large": 8,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / X-Large": 24,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / XX-Large": 11,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / XXX-Large": 2,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / Small": 0,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / Medium": 0,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / Large": 0,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / X-Large": 0,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / XX-Large": 11,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / XXX-Large": 5,
+  "JUNK Flex Tie Headband Navy Blue": 10,
+  "JUNK Big Bang Lite Headband Navy Blue": 7,
+  "JOOLA Essentials Pickleball Sling Bag": 30,
+  "JOOLA Universal Neoprene Pickleball Paddle Cover": 21,
+  "JOOLA Trinity Wristband 2-Pack": 20,
+  "JOOLA Pickleball Edge Guard Tape Black 5M": 0,
+  "JOOLA Pickleball Edge Guard Tape White 24M": 0,
+  "JOOLA Replacement White Ridge Grip 2-Pack": 0,
+  "JOOLA Replacement Feel-Tec Pure Grip": 0,
+  "JOOLA Premium Pickleball Paddle Overgrip 4-Count White": 2,
+  "JOOLA PRO IV Keychain - Agassi Pro": 6,
+  "JOOLA PRO IV Keychain - Hyperion Pro IV": 4,
+  "JOOLA PRO IV Keychain - Magnus Pro IV": 6,
+  "JOOLA PRO IV Keychain - Perseus Pro IV": 5,
+  "JOOLA PRO IV Keychain - Scorpeus Pro IV": 5,
+  "QMI P365 16oz Clear Tumbler - Lime Straw": 5,
+  "QMI P365 30oz White Travel Tumbler": 3,
+  "P365 Keychain Yellow": 30,
+  "P365 Keychain Pink": 23,
+  "P365 Keychain Red": 27,
+  "P365 Slim Tumbler": 14
+};
+
+// August 2025 actual quantities
+const augustQuantities = {
+  "JOOLA Ben Johns Perseus Pro IV 16mm Paddle": 6,
+  "JOOLA Ben Johns Perseus Pro IV 14mm Paddle": 2,
+  "JOOLA Ben Johns Hyperion Pro IV 16mm Paddle": 4,
+  "JOOLA Ben Johns Hyperion Pro IV 14mm Paddle": 2,
+  "JOOLA Simone Jardim Hyperion Pro IV 16mm Paddle": 2,
+  "JOOLA Collin Johns Scorpeus Pro IV 16mm Paddle": 3,
+  "JOOLA Anna Bright Scorpeus Pro IV 14mm Paddle": 3,
+  "JOOLA Tyson McGuffin Magnus Pro IV 16mm Paddle": 2,
+  "JOOLA Tyson McGuffin Magnus Pro IV 14mm Paddle": 5,
+  "JOOLA Agassi Pro 16mm Pickleball Paddle": 4,
+  "JOOLA Graf Pro 16mm Pickleball Paddle": 2,
+  "JOOLA Agassi Pro 14mm Pickleball Paddle": 0,
+  "JOOLA Agassi Edge 16mm Pickleball Paddle": 3,
+  "JOOLA Graf Edge 16mm Pickleball Paddle": 3,
+  "JOOLA Agassi Champion 12mm Pickleball Paddle": 0,
+  "JOOLA Graf Champion 12mm Pickleball Paddle": 0,
+  "JOOLA Agassi/Graf Champion Pickleball Paddle Set": 1,
+  "FRANKLIN Tour Dynasty 12mm FthrWt Paddle": 2,
+  "FRANKLIN Tour Tempo 12mm FthrWt Paddle": 3,
+  "FRANKLIN C45 Dynasty 14mm Red Paddle": 3,
+  "FRANKLIN C45 Dynasty 16mm Red Paddle": 2,
+  "P365 Pickleball Paddle": 24,
+  "AA Sport-Tek Ladies Repeat Skort - True Navy / Medium": 1,
+  "AA Sport-Tek Ladies Repeat Skort - True Navy / Large": 1,
+  "AA Sport-Tek PosiCharge RacerMesh Visor - True Navy": 0,
+  "AA Holloway Ladies Coolcore Skort - Navy / Medium": 1,
+  "AA Performance Short Sleeve Tee Shirt - Navy / Small": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / Medium": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / X-Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / XX-Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Navy / XXX-Large": 0,
+  "AA Performance Short Sleeve Tee Shirt - Neon Green / Small": 1,
+  "AA Performance Short Sleeve Tee Shirt - Neon Green / Medium": 1,
+  "AA Performance Short Sleeve Tee Shirt - Neon Green / Large": 1,
+  "AA Performance Short Sleeve Tee Shirt - Neon Green / X-Large": 1,
+  "AA Performance Long Sleeve Tee Shirt - Navy / Small": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / Medium": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / Large": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / X-Large": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / XX-Large": 0,
+  "AA Performance Long Sleeve Tee Shirt - Navy / XXX-Large": 0,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / Small": 6,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / Medium": 2,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / Large": 3,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / X-Large": 6,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / XX-Large": 6,
+  "QMI P365 Performance Short Sleeve Tee Shirt - Navy / XXX-Large": 3,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / Small": 0,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / Medium": 0,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / Large": 8,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / X-Large": 24,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / XX-Large": 11,
+  "QMI P365 Performance Long Sleeve Tee Shirt - Navy / XXX-Large": 2,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / Small": 0,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / Medium": 0,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / Large": 0,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / X-Large": 0,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / XX-Large": 11,
+  "QMI P365 50/50 Short Sleeve Tee Shirt - Navy / XXX-Large": 5,
+  "JUNK Flex Tie Headband Navy Blue": 10,
+  "JUNK Big Bang Lite Headband Navy Blue": 7,
+  "JOOLA Essentials Pickleball Sling Bag": 30,
+  "JOOLA Universal Neoprene Pickleball Paddle Cover": 21,
+  "JOOLA Trinity Wristband 2-Pack": 20,
+  "JOOLA Pickleball Edge Guard Tape Black 5M": 0,
+  "JOOLA Pickleball Edge Guard Tape White 24M": 0,
+  "JOOLA Replacement White Ridge Grip 2-Pack": 0,
+  "JOOLA Replacement Feel-Tec Pure Grip": 0,
+  "JOOLA Premium Pickleball Paddle Overgrip 4-Count White": 2,
+  "JOOLA PRO IV Keychain - Agassi Pro": 6,
+  "JOOLA PRO IV Keychain - Hyperion Pro IV": 4,
+  "JOOLA PRO IV Keychain - Magnus Pro IV": 6,
+  "JOOLA PRO IV Keychain - Perseus Pro IV": 5,
+  "JOOLA PRO IV Keychain - Scorpeus Pro IV": 5,
+  "QMI P365 16oz Clear Tumbler - Lime Straw": 5,
+  "QMI P365 30oz White Travel Tumbler": 3,
+  "P365 Keychain Yellow": 30,
+  "P365 Keychain Pink": 23,
+  "P365 Keychain Red": 27,
+  "P365 Slim Tumbler": 14
+};
+
 // Initialize inventory data for all months
 const initializeInventoryData = () => {
   const initialInventory = [
@@ -202,6 +542,54 @@ const initializeInventoryData = () => {
         const productName = item[0];
         if (aprilQuantities.hasOwnProperty(productName)) {
           item[3] = aprilQuantities[productName];
+        } else {
+          item[3] = 0; // Default to 0 if not found
+        }
+      });
+    }
+    
+    // Use actual May quantities for May (month index 4)
+    if (i === 4) {
+      inventoryData[i].forEach(item => {
+        const productName = item[0];
+        if (mayQuantities.hasOwnProperty(productName)) {
+          item[3] = mayQuantities[productName];
+        } else {
+          item[3] = 0; // Default to 0 if not found
+        }
+      });
+    }
+    
+    // Use actual June quantities for June (month index 5)
+    if (i === 5) {
+      inventoryData[i].forEach(item => {
+        const productName = item[0];
+        if (juneQuantities.hasOwnProperty(productName)) {
+          item[3] = juneQuantities[productName];
+        } else {
+          item[3] = 0; // Default to 0 if not found
+        }
+      });
+    }
+    
+    // Use actual July quantities for July (month index 6)
+    if (i === 6) {
+      inventoryData[i].forEach(item => {
+        const productName = item[0];
+        if (julyQuantities.hasOwnProperty(productName)) {
+          item[3] = julyQuantities[productName];
+        } else {
+          item[3] = 0; // Default to 0 if not found
+        }
+      });
+    }
+    
+    // Use actual August quantities for August (month index 7)
+    if (i === 7) {
+      inventoryData[i].forEach(item => {
+        const productName = item[0];
+        if (augustQuantities.hasOwnProperty(productName)) {
+          item[3] = augustQuantities[productName];
         } else {
           item[3] = 0; // Default to 0 if not found
         }

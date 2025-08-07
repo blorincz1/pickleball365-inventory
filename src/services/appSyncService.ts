@@ -243,4 +243,59 @@ export class AppSyncService {
       return 'Accessories';
     }
   }
+
+  // Console script for manual database population
+  static async populateFromConsole() {
+    const service = new AppSyncService();
+    console.log('🚀 Starting console database population...');
+    
+    // Get localStorage data
+    const localStorageData = localStorage.getItem('inventoryData');
+    if (!localStorageData) {
+      console.log('⚠️ No localStorage data found');
+      return false;
+    }
+    
+    const parsedData = JSON.parse(localStorageData);
+    console.log('📦 localStorage data:', parsedData);
+    
+    const items: Omit<InventoryItem, 'id'>[] = [];
+    
+    // Convert localStorage data to AppSync format
+    Object.keys(parsedData).forEach(monthName => {
+      console.log(`📅 Processing month: ${monthName}`);
+      const monthIndex = service.getMonthIndex(monthName);
+      console.log(`📅 Month index: ${monthIndex}`);
+      
+      if (monthIndex !== -1) {
+        console.log(`📦 Items in ${monthName}:`, parsedData[monthName]);
+        parsedData[monthName].forEach((item: any) => {
+          const newItem = {
+            name: item[0],
+            retail: parseFloat(item[1]),
+            cost: parseFloat(item[2]),
+            quantity: parseInt(item[3]),
+            month: monthIndex,
+            category: service.getCategoryForProduct(item[0])
+          };
+          console.log(`➕ Converting item:`, item, `to:`, newItem);
+          items.push(newItem);
+        });
+      }
+    });
+
+    console.log(`📦 Total items to add: ${items.length}`);
+    console.log(`📦 All items:`, items);
+    
+    // Add all items to AppSync
+    console.log(`📝 Adding ${items.length} items to AppSync...`);
+    for (const item of items) {
+      console.log('➕ Adding item:', item);
+      const result = await service.addItem(item);
+      console.log('✅ Add result:', result);
+    }
+
+    console.log('✅ Console database population completed successfully!');
+    return true;
+  }
 } 
