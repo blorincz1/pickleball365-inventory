@@ -1,5 +1,5 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { DynamoDBDocumentClient, PutCommand, GetCommand, QueryCommand, DeleteCommand, UpdateCommand } from '@aws-sdk/lib-dynamodb';
+import { DynamoDBDocumentClient, PutCommand, GetCommand, QueryCommand, DeleteCommand, UpdateCommand, ScanCommand } from '@aws-sdk/lib-dynamodb';
 
 // Initialize DynamoDB client
 const client = new DynamoDBClient({ region: 'us-east-1' });
@@ -7,18 +7,16 @@ const docClient = DynamoDBDocumentClient.from(client);
 
 export interface InventoryItem {
   id: string;
+  month: number;
   name: string;
   retail: number;
   cost: number;
   quantity: number;
-  month: number;
   category: string;
-  createdAt: string;
-  updatedAt: string;
 }
 
 export class SimpleDatabaseService {
-  private tableName = 'inventory-items';
+  private tableName = 'Pickleball365Inventory';
 
   async createTableIfNotExists(): Promise<void> {
     // This would create the table if it doesn't exist
@@ -26,16 +24,13 @@ export class SimpleDatabaseService {
     console.log('Table creation would happen here');
   }
 
-  async addItem(item: Omit<InventoryItem, 'id' | 'createdAt' | 'updatedAt'>): Promise<InventoryItem | null> {
+  async addItem(item: Omit<InventoryItem, 'id'>): Promise<InventoryItem | null> {
     try {
       const id = `item_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-      const now = new Date().toISOString();
       
       const newItem: InventoryItem = {
         ...item,
         id,
-        createdAt: now,
-        updatedAt: now,
       };
 
       const command = new PutCommand({
@@ -53,10 +48,9 @@ export class SimpleDatabaseService {
 
   async getItemsByMonth(month: number): Promise<InventoryItem[]> {
     try {
-      const command = new QueryCommand({
+      const command = new ScanCommand({
         TableName: this.tableName,
-        IndexName: 'month-index', // We'll need to create this index
-        KeyConditionExpression: '#month = :month',
+        FilterExpression: '#month = :month',
         ExpressionAttributeNames: {
           '#month': 'month',
         },
@@ -78,10 +72,9 @@ export class SimpleDatabaseService {
       const command = new UpdateCommand({
         TableName: this.tableName,
         Key: { id },
-        UpdateExpression: 'SET quantity = :quantity, updatedAt = :updatedAt',
+        UpdateExpression: 'SET quantity = :quantity',
         ExpressionAttributeValues: {
           ':quantity': quantity,
-          ':updatedAt': new Date().toISOString(),
         },
         ReturnValues: 'ALL_NEW',
       });
@@ -109,9 +102,9 @@ export class SimpleDatabaseService {
     }
   }
 
-  async migrateFromLocalStorage(localStorageData: any): Promise<boolean> {
-    try {
-      const items: Omit<InventoryItem, 'id' | 'createdAt' | 'updatedAt'>[] = [];
+           async migrateFromLocalStorage(localStorageData: any): Promise<boolean> {
+           try {
+             const items: Omit<InventoryItem, 'id'>[] = [];
       
       // Convert localStorage data to database format
       Object.keys(localStorageData).forEach(monthName => {
