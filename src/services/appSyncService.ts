@@ -89,6 +89,9 @@ export class AppSyncService {
       });
       
       console.log('✅ AppSync response:', response);
+      console.log('📦 Response data:', response.data);
+      console.log('📦 getInventoryItems:', response.data.getInventoryItems);
+      console.log('📦 Items count:', response.data.getInventoryItems?.length || 0);
       return response.data.getInventoryItems || [];
     } catch (error) {
       console.error('❌ Error getting items by month:', error);
@@ -122,6 +125,8 @@ export class AppSyncService {
       });
       
       console.log('✅ Item added successfully:', response);
+      console.log('📦 Create response data:', response.data);
+      console.log('📦 Created item:', response.data.createInventoryItem);
       return response.data.createInventoryItem;
     } catch (error) {
       console.error('❌ Error adding item:', error);
@@ -189,8 +194,11 @@ export class AppSyncService {
       console.log(`📦 Migrating ${items.length} items to AppSync`);
       
       // Add all items to AppSync
+      console.log(`📝 Adding ${items.length} items to AppSync...`);
       for (const item of items) {
-        await this.addItem(item);
+        console.log('➕ Adding item:', item);
+        const result = await this.addItem(item);
+        console.log('✅ Add result:', result);
       }
 
       console.log('✅ Migration completed successfully!');
