@@ -163,30 +163,20 @@ export const useInventoryDataAppSync = () => {
     }
   };
 
-  // Migrate from localStorage to database
-  const migrateToDatabase = async () => {
+  // Populate database with localStorage data
+  const populateDatabase = async () => {
     try {
-      console.log('🚀 Starting migration to AppSync...');
-      const localStorageData = localStorage.getItem('inventoryData');
-      console.log('📦 localStorage data for migration:', localStorageData);
+      console.log('🚀 Starting database population...');
+      const success = await dbService.populateDatabase();
+      console.log('✅ Population result:', success);
       
-      if (localStorageData && !hasMigrated) {
-        console.log('🔄 Migrating to AppSync...');
-        const parsedData = JSON.parse(localStorageData);
-        console.log('📊 Parsed data:', parsedData);
-        const success = await dbService.migrateFromLocalStorage(parsedData);
-        console.log('✅ Migration result:', success);
-        
-        if (success) {
-          setHasMigrated(true);
-          setUseDatabase(true);
-          console.log('🎉 Migration successful!');
-        }
-      } else {
-        console.log('⚠️ No localStorage data or already migrated');
+      if (success) {
+        console.log('🎉 Database populated successfully!');
+        // Reload data to show the populated items
+        await loadInventoryData();
       }
     } catch (error) {
-      console.error('❌ Error migrating to AppSync:', error);
+      console.error('❌ Error populating database:', error);
     }
   };
 
@@ -231,7 +221,7 @@ export const useInventoryDataAppSync = () => {
     addProduct,
     deleteProduct,
     loadInventoryData,
-    migrateToDatabase,
+    populateDatabase,
     toggleDatabase
   };
 }; 

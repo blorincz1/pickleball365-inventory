@@ -43,7 +43,7 @@ function App() {
     toggleDeleteMode,
     addProduct,
     deleteProduct,
-    migrateToDatabase,
+    populateDatabase,
     toggleDatabase
   } = useInventoryDataAppSync();
 
@@ -97,7 +97,7 @@ function App() {
           months={months}
           useDatabase={useDatabase}
           onToggleDatabase={toggleDatabase}
-          onMigrateToDatabase={migrateToDatabase}
+          onPopulateDatabase={populateDatabase}
         />
 
         <MonthSelector 

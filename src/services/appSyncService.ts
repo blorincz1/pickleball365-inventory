@@ -168,30 +168,47 @@ export class AppSyncService {
     }
   }
 
-  async migrateFromLocalStorage(localStorageData: any): Promise<boolean> {
+  async populateDatabase(): Promise<boolean> {
     try {
-      console.log('🚀 Starting migration to AppSync...');
+      console.log('🚀 Starting database population...');
+      
+      // Get localStorage data
+      const localStorageData = localStorage.getItem('inventoryData');
+      if (!localStorageData) {
+        console.log('⚠️ No localStorage data found');
+        return false;
+      }
+      
+      const parsedData = JSON.parse(localStorageData);
+      console.log('📦 localStorage data:', parsedData);
       
       const items: Omit<InventoryItem, 'id'>[] = [];
       
       // Convert localStorage data to AppSync format
-      Object.keys(localStorageData).forEach(monthName => {
+      Object.keys(parsedData).forEach(monthName => {
+        console.log(`📅 Processing month: ${monthName}`);
         const monthIndex = this.getMonthIndex(monthName);
+        console.log(`📅 Month index: ${monthIndex}`);
+        
         if (monthIndex !== -1) {
-          localStorageData[monthName].forEach((item: any) => {
-            items.push({
+          console.log(`📦 Items in ${monthName}:`, parsedData[monthName]);
+          parsedData[monthName].forEach((item: any) => {
+            const newItem = {
               name: item[0],
               retail: parseFloat(item[1]),
               cost: parseFloat(item[2]),
               quantity: parseInt(item[3]),
               month: monthIndex,
               category: this.getCategoryForProduct(item[0])
-            });
+            };
+            console.log(`➕ Converting item:`, item, `to:`, newItem);
+            items.push(newItem);
           });
         }
       });
 
-      console.log(`📦 Migrating ${items.length} items to AppSync`);
+      console.log(`📦 Total items to add: ${items.length}`);
+      console.log(`📦 All items:`, items);
       
       // Add all items to AppSync
       console.log(`📝 Adding ${items.length} items to AppSync...`);
@@ -201,10 +218,10 @@ export class AppSyncService {
         console.log('✅ Add result:', result);
       }
 
-      console.log('✅ Migration completed successfully!');
+      console.log('✅ Database population completed successfully!');
       return true;
     } catch (error) {
-      console.error('❌ Error migrating from localStorage:', error);
+      console.error('❌ Error populating database:', error);
       return false;
     }
   }
