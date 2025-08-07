@@ -1,7 +1,7 @@
 import React from 'react';
 import { exportToCSV } from '../utils/formatters';
 
-const ProductManagement = ({ onAddProduct, onToggleDeleteMode, deleteMode, inventoryData, currentMonth, months }) => {
+const ProductManagement = ({ onAddProduct, onToggleDeleteMode, deleteMode, inventoryData, currentMonth, months, useDatabase, onToggleDatabase, onMigrateToDatabase }) => {
   const handleExport = () => {
     if (inventoryData && inventoryData[currentMonth]) {
       exportToCSV(inventoryData, currentMonth, months);
@@ -27,6 +27,28 @@ const ProductManagement = ({ onAddProduct, onToggleDeleteMode, deleteMode, inven
       <button className="export-btn" onClick={handleExport}>
         📥 Export CSV
       </button>
+      <button 
+        className="manage-btn" 
+        onClick={onToggleDatabase}
+        style={{
+          background: useDatabase 
+            ? 'linear-gradient(45deg, #27ae60, #2ecc71)' 
+            : 'linear-gradient(45deg, #f39c12, #e67e22)'
+        }}
+      >
+        {useDatabase ? '🗄️ Database Mode' : '💾 LocalStorage Mode'}
+      </button>
+      {!useDatabase && (
+        <button 
+          className="manage-btn" 
+          onClick={onMigrateToDatabase}
+          style={{
+            background: 'linear-gradient(45deg, #3498db, #2980b9)'
+          }}
+        >
+          🚀 Migrate to Database
+        </button>
+      )}
     </div>
   );
 };

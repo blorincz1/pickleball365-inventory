@@ -7,6 +7,7 @@ import ProductManagement from './components/ProductManagement';
 import AddProductModal from './components/AddProductModal';
 import Auth from './components/Auth.tsx';
 import { useInventoryData } from './hooks/useInventoryData';
+import { useInventoryDataSimpleDB } from './hooks/useInventoryDataSimpleDB';
 import { getCurrentUser } from 'aws-amplify/auth';
 import './amplifyconfiguration.ts';
 
@@ -34,12 +35,16 @@ function App() {
     currentMonth,
     deleteMode,
     inventoryByCategory,
+    isLoading: dataLoading,
+    useDatabase,
     updateQuantity,
     switchMonth,
     toggleDeleteMode,
     addProduct,
-    deleteProduct
-  } = useInventoryData();
+    deleteProduct,
+    migrateToDatabase,
+    toggleDatabase
+  } = useInventoryDataSimpleDB();
 
   const [showAddModal, setShowAddModal] = useState(false);
 
@@ -58,6 +63,14 @@ function App() {
     return (
       <div className="App">
         <div className="loading">Loading...</div>
+      </div>
+    );
+  }
+
+  if (dataLoading) {
+    return (
+      <div className="App">
+        <div className="loading">Loading inventory data...</div>
       </div>
     );
   }
@@ -81,6 +94,9 @@ function App() {
           inventoryData={inventoryData}
           currentMonth={currentMonth}
           months={months}
+          useDatabase={useDatabase}
+          onToggleDatabase={toggleDatabase}
+          onMigrateToDatabase={migrateToDatabase}
         />
 
         <MonthSelector 
