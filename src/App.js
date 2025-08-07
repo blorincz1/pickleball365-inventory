@@ -9,6 +9,7 @@ import Auth from './components/Auth.tsx';
 import { useInventoryData } from './hooks/useInventoryData';
 import { useInventoryDataAppSync } from './hooks/useInventoryDataAppSync';
 import { getCurrentUser } from 'aws-amplify/auth';
+import { Amplify } from 'aws-amplify';
 import './amplifyconfiguration.ts';
 
 function App() {
